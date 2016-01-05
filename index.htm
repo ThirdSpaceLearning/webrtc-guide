@@ -1,0 +1,135 @@
+<link type="text/css" rel="stylesheet" href="css/main.css" />
+
+<script type="text/javascript" src="lib/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+
+<script type="text/javascript" src="js/step-00-getusermedia.js"></script>
+<script type="text/javascript" src="js/step-01-pc.js"></script>
+<script type="text/javascript" src="js/step-02-create-offer-sdp.js"></script>
+<script type="text/javascript" src="js/step-03-send-offer-sdp.js"></script>
+<script type="text/javascript" src="js/step-04-add-stream.js"></script>
+<script type="text/javascript" src="js/step-05-rcv-offer-sdp.js"></script>
+<script type="text/javascript" src="js/step-06-remote-set-remote-description.js"></script>
+<script type="text/javascript" src="js/step-07-create-answer-sdp.js"></script>
+<script type="text/javascript" src="js/step-08-send-answer-sdp.js"></script>
+<script type="text/javascript" src="js/step-09-set-answer-sdp.js"></script>
+<script type="text/javascript" src="js/step-10-rcv-answer-sdp.js"></script>
+<script type="text/javascript" src="js/step-11-local-set-remote-description.js"></script>
+<script type="text/javascript" src="js/step-12-send-ice.js"></script>
+<script type="text/javascript" src="js/step-13-rcv-ice.js"></script>
+<script type="text/javascript" src="js/step-14-stats.js"></script>
+
+<div class="header">
+	<img src="images/third-space-learning-logo.png" class="logo">
+	<h1>WebRTC Tutorial Guide</h1>
+</div>
+
+<div class="alert-box error" style="dispay:none"> <a href="#" onclick="return onCloseError();"><img src="images/error.png" alt="Error" /></a> <span class="alert-box-severity">error: </span><span id="alert-box-error-text">Write your error message here.</span></div>
+
+
+<div class="row">
+	<div class="row entry rtc-step both">getUserMedia</div>
+	<div class="row entry rtc-action"><a href='#' class='doit' data-step='gum' onclick='return action(this);'>Do it!</a></div>
+	<div class="row entry rtc-logging" id="log-gum"></div>
+	<div class="row entry rtc-output" id="out-gum"></div>
+</div>
+
+<div class="row">
+	<div class="row entry rtc-step both">Create Peer connection</div>
+	<div class="row entry rtc-action"><a href='#' class='doit' data-step='pc' onclick='return action(this);'>Do it!</a></div>
+	<div class="row entry rtc-logging" id="log-pc"></div>
+	<div class="row entry rtc-output" id="out-pc"></div>
+</div>
+
+<div class="row">
+	<div class="row entry rtc-step both">Attach media stream to Peer connection</div>
+	<div class="row entry rtc-action"><a href='#' class='doit' data-step='add-stream' onclick='return action(this);'>Do it!</a></div>
+	<div class="row entry rtc-logging" id="log-add-stream"></div>
+	<div class="row entry rtc-output" id="out-add-stream"></div>
+</div>
+
+<div class="row">
+	<div class="row entry rtc-step local">Create offer SDP (on local)</div>
+	<div class="row entry rtc-action"><a href='#' class='doit' data-step='offer-sdp' onclick='return action(this);'>Do it!</a></div>
+	<div class="row entry rtc-logging" id="log-offer-sdp"></div>
+	<div class="row entry rtc-output" id="out-offer-sdp"></div>
+</div>
+
+<div class="row">
+	<div class="row entry rtc-step local">Send offer SDP (on local)</div>
+	<div class="row entry rtc-action"><a href='#' class='doit' data-step='send-offer-sdp' onclick='return action(this);'>Do it!</a></div>
+	<div class="row entry rtc-logging" id="log-send-offer-sdp"></div>
+	<div class="row entry rtc-output" id="out-send-offer-sdp"></div>
+</div>
+
+<div class="row">
+	<div class="row entry rtc-step remote">Recieved offer SDP (on remote)</div>
+	<div class="row entry rtc-action"><a href='#' class='doit' data-step='rcv-offer-sdp' onclick='return action(this);'>Do it!</a></div>
+	<div class="row entry rtc-logging" id="log-rcv-offer-sdp"></div>
+	<div class="row entry rtc-output" id="out-rcv-offer-sdp"></div>
+</div>
+
+<div class="row">
+	<div class="row entry rtc-step remote">Set remote description (on remote)</div>
+	<div class="row entry rtc-action"><a href='#' class='doit' data-step='remote-set-remote-description' onclick='return action(this);'>Do it!</a></div>
+	<div class="row entry rtc-logging" id="log-remote-set-remote-description"></div>
+	<div class="row entry rtc-output" id="out-remote-set-remote-description"></div>
+</div>
+
+<div class="row">
+	<div class="row entry rtc-step remote">Create answer SDP (on remote)</div>
+	<div class="row entry rtc-action"><a href='#' class='doit' data-step='create-answer-sdp' onclick='return action(this);'>Do it!</a></div>
+	<div class="row entry rtc-logging" id="log-create-answer-sdp"></div>
+	<div class="row entry rtc-output" id="out-create-answer-sdp"></div>
+</div>
+
+<div class="row">
+	<div class="row entry rtc-step remote">Set answer SDP (on remote)</div>
+	<div class="row entry rtc-action"><a href='#' class='doit' data-step='set-answer-sdp' onclick='return action(this);'>Do it!</a></div>
+	<div class="row entry rtc-logging" id="log-set-answer-sdp"></div>
+	<div class="row entry rtc-output" id="out-set-answer-sdp"></div>
+</div>
+
+<div class="row">
+	<div class="row entry rtc-step remote">Send answer SDP back to local</div>
+	<div class="row entry rtc-action"><a href='#' class='doit' data-step='send-answer-sdp' onclick='return action(this);'>Do it!</a></div>
+	<div class="row entry rtc-logging" id="log-send-answer-sdp"></div>
+	<div class="row entry rtc-output" id="out-send-answer-sdp"></div>
+</div>
+
+<div class="row">
+	<div class="row entry rtc-step local">Recieved answer SDP (on local)</div>
+	<div class="row entry rtc-action"><a href='#' class='doit' data-step='rcv-answer-sdp' onclick='return action(this);'>Do it!</a></div>
+	<div class="row entry rtc-logging" id="log-rcv-answer-sdp"></div>
+	<div class="row entry rtc-output" id="out-rcv-answer-sdp"></div>
+</div>
+
+<div class="row">
+	<div class="row entry rtc-step local">Set remote description (on local)</div>
+	<div class="row entry rtc-action"><a href='#' class='doit' data-step='local-set-remote-description' onclick='return action(this);'>Do it!</a></div>
+	<div class="row entry rtc-logging" id="log-local-set-remote-description"></div>
+	<div class="row entry rtc-output" id="out-local-set-remote-description"></div>
+</div>
+
+<div class="row">
+	<div class="row entry rtc-step both">Send ICE candidates</div>
+	<div class="row entry rtc-action"><a href='#' class='doit' data-step='send-ice' onclick='return action(this);'>Do it!</a></div>
+	<div class="row entry rtc-logging" id="log-send-ice"></div>
+	<div class="row entry rtc-output" id="out-send-ice"></div>
+</div>
+
+<div class="row">
+	<div class="row entry rtc-step both">Recieve ICE candidates</div>
+	<div class="row entry rtc-action"><a href='#' class='doit' data-step='rcv-ice' onclick='return action(this);'>Do it!</a></div>
+	<div class="row entry rtc-logging" id="log-rcv-ice"></div>
+	<div class="row entry rtc-output" id="out-rcv-ice"></div>
+</div>
+
+
+<div class="row">
+	<div class="row entry rtc-step both">Get Stats</div>
+	<div class="row entry rtc-action"><a href='#' class='doit' data-step='stats' onclick='return action(this);'>Do it!</a></div>
+	<div class="row entry rtc-logging" id="log-stats"></div>
+	<div class="row entry rtc-output" id="out-stats"></div>
+</div>
+
